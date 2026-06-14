@@ -406,21 +406,24 @@ function startTyping(){
 
 const messages = [
 
-"The way you make ordinary days special.",
-"Your smile that fixes my mood.",
-"The way you listen to me.",
-"Your kindness.",
-"The way you care.",
-"The fact that you're you."
+"Your smile makes every day better ❤️",
+
+"The way you always support me ❤️",
+
+"The way you laugh at my bad jokes ❤️",
+
+"The way you care about the people you love ❤️",
+
+"The way you make distance feel smaller ❤️",
+
+"Because you're the best thing that's happened to me ❤️"
 
 ];
 
-function reveal(card){
+function reveal(card,index){
 
-    const random =
-    messages[Math.floor(Math.random()*messages.length)];
-
-    card.innerText = random;
+    card.innerText = messages[index];
+}
 }
 
 function createHeart(){
