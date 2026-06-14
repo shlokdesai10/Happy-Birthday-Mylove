@@ -193,6 +193,20 @@ input{
     border:none;
     box-shadow:0 10px 30px rgba(0,0,0,.12);
 }
+    #countdownPage{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:#000;
+}
+
+#countdownTimer{
+    font-size:4rem;
+    color:#ff4f8b;
+    margin-top:30px;
+}
 @media(max-width:768px){
 
     h1{
@@ -212,8 +226,30 @@ input{
 </head>
 
 <body>
+<section id="countdownPage">
 
-<section id="passwordPage">
+    <h1 style="color:#ff4f8b;">
+        ❤️ Something Special Is Waiting ❤️
+    </h1>
+
+    <p style="
+        font-size:1.2rem;
+        text-align:center;
+        margin-top:20px;
+    ">
+        Come back when the countdown ends...
+    </p>
+
+    <h1 id="countdownTimer"
+        style="
+        margin-top:40px;
+        font-size:3rem;
+        color:#ffffff;
+        ">
+    </h1>
+
+</section>
+<section id="passwordPage" style="display:none;">
 
     <h1>For <span class="accent">babu</span> ❤️</h1>
 
@@ -344,7 +380,34 @@ input{
 </div>
 
 <script>
+const birthdayDate = new Date(Date.now() + 10000);
 
+function updateCountdown(){
+
+    const now = new Date();
+    const difference = birthdayDate - now;
+
+    if(difference <= 0){
+
+        document.getElementById("countdownPage").style.display = "none";
+        document.getElementById("passwordPage").style.display = "flex";
+
+        clearInterval(timer);
+        return;
+    }
+
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("countdownTimer").innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+updateCountdown();
+
+const timer = setInterval(updateCountdown,1000);
 const correctPassword = "230226";
 
 function checkPassword(){
