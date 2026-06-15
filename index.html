@@ -428,7 +428,7 @@ Forever yours,
 </div>
 
 <script>
-const birthdayDate = new Date("2026-06-16T00:00:00+05:30");
+
 function updateCountdown(){
 
     const now = new Date();
@@ -459,9 +459,9 @@ ${seconds} Seconds
 
 updateCountdown();
 
-const birthdayDate = new Date("2026-06-16T00:00:00+05:30");
-const correctPassword = "230226";
+const timer = setInterval(updateCountdown,1000);
 
+const correctPassword = "230226";
 function checkPassword(){
 
     const entered =
