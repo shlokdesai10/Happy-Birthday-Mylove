@@ -435,13 +435,16 @@ function updateCountdown(){
     const now = new Date();
     const difference = birthdayDate - now;
 
-    if(difference <= 0){
+   if(difference <= 0){
 
-        document.getElementById("countdownPage").style.display = "none";
+    document.getElementById("countdownPage").style.display = "none";
+
+    if(document.getElementById("content").classList.contains("hidden")){
         document.getElementById("passwordPage").style.display = "flex";
-
-        return;
     }
+
+    return;
+}
 
     const days = Math.floor(difference / (1000 * 60 * 60 * 24));
     const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
