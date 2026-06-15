@@ -440,7 +440,6 @@ function updateCountdown(){
         document.getElementById("countdownPage").style.display = "none";
         document.getElementById("passwordPage").style.display = "flex";
 
-        clearInterval(timer);
         return;
     }
 
@@ -465,9 +464,6 @@ const timer = setInterval(updateCountdown,1000);
 const correctPassword = "230226";
 function checkPassword(){
       alert("Button Clicked");
-
-    const entered =
-    document.getElementById("password").value;
 
     const entered =
     document.getElementById("password").value;
