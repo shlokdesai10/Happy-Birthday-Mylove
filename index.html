@@ -275,10 +275,17 @@ input{
 </section>
 
 <div id="content" class="hidden birthday-theme">
+    <audio id="birthdaySong">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
 
 <section>
 
     <div class="typewriter" id="typewriter"></div>
+
+    <button class="btn" onclick="toggleMusic()" id="musicBtn">
+        🎵 Play Our Song
+    </button>
 
 </section>
 
@@ -537,7 +544,29 @@ function createHeart(){
 
     }, 8000);
 }
+function toggleMusic(){
 
+    const song =
+    document.getElementById("birthdaySong");
+
+    const btn =
+    document.getElementById("musicBtn");
+
+    if(song.paused){
+
+        song.play();
+
+        btn.innerHTML =
+        "⏸ Pause Our Song";
+
+    }else{
+
+        song.pause();
+
+        btn.innerHTML =
+        "🎵 Play Our Song";
+    }
+}
 setInterval(createHeart, 400);
 
 </script>
